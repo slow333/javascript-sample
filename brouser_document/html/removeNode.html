@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>remove node exercise</title>
+    <style>
+        .textBlock {
+            padding: 18px;
+            border-radius: 30px;
+            color: white;
+            background-color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+<div id="rootDiv"></div>
+<ul id="ulTag"></ul>
+
+<script>
+  let div = document.createElement('div');
+  let rootDiv = document.getElementById('rootDiv');
+  let isShowDiv = false;
+  function showDiv(){
+    isShowDiv = !isShowDiv;
+    if(!isShowDiv) div.remove()
+    else document.body.append(div)
+  }
+  div.className = 'textBlock';
+  div.style = 'text-align : center; font-size: 23px';
+  div.innerHTML = "<strong>강한 단어</strong> 노드 삭제 연습";
+  // document.body.append(div);
+  // setInterval(() => ulTag.append(getContent()), 1000 );
+
+  function getContent(){
+    let result = [];
+    for(let i=1; i<=3; i++) {
+      let li = document.createElement('li');
+      li.append(i);
+      result.push(li);
+    }
+    return result;
+  }
+
+  let ulTag = document.getElementById('ulTag');
+  ulTag.append(...getContent());
+  function getListContent() {
+    let fragment = new DocumentFragment();
+    isShowDiv = !isShowDiv;
+    if(!isShowDiv) {
+      div.remove();
+    }
+    else {
+      fragment.append(div);
+      for(let i=1; i<=3; i++) {
+        div.append(i);
+        fragment.append(div);
+      }
+      return fragment;
+    }
+  }
+</script>
+</body>
+</html>

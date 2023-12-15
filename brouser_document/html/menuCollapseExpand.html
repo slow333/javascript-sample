@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>메뉴를 축소 확대하는 기능</title>
+  <style>
+    .imgSize {
+      width: 30px;
+      height: 30px;
+    }
+  </style>
+</head>
+<body>
+<div id="menu" >
+  <img id="image" src='../resource/paper.png' onclick="clickHandler()" class="imgSize">누르면 확장됨! 클릭
+</div>
+<div id="items" hidden="hidden">
+  <p>Cake</p>
+  <p>도너스</p>
+  <p>꿀</p>
+</div>
+<script>
+  let menu = document.getElementById('menu');
+  let items = document.getElementById('items');
+  let img = document.getElementById('image');
+  let isExpand = true;
+
+  let clickHandler = () => {
+    if (isExpand) {
+      items.hidden = true;
+      img.src = '../resource/rock.png'
+    } else {
+      items.hidden = false;
+      img.src = '../resource/paper.png'
+    }
+    isExpand = !isExpand;
+  }
+</script>
+</body>
+</html>

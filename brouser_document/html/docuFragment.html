@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document fragment</title>
+</head>
+<body>
+<ul id="ulTag"></ul>
+<script>
+  function getListContent(){
+    let fragment = new DocumentFragment();
+    for(let i = 1; i <= 3; i++){
+      let liTag = document.createElement('li');
+      liTag.insertAdjacentHTML('beforeend',
+              `추가된 li tag <span style="color: red">${i}</span>`);
+      fragment.append(liTag);
+    }
+    return fragment;
+  }
+
+  document.querySelector('#ulTag').append(getListContent());
+</script>
+</body>
+</html>

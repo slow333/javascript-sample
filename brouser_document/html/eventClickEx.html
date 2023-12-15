@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>브라우저 이벤트</title>
+</head>
+<body>
+<button id="btn">텍스트 숨기기...</button>
+<div id="text">이 것이 숨겨짐</div>
+<script>
+  let btn = document.getElementById('btn');
+  let text = document.getElementById('text');
+  let btnBoolean = true;
+  btn.onclick = function () {
+    text.hidden = btnBoolean;
+    // btn.hidden = true;
+    btnBoolean = !btnBoolean;
+    // text.style.display = 'none';
+  };
+</script>
+</body>
+</html>

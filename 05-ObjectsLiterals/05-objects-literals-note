@@ -1,0 +1,18 @@
+## properties와 methods로 구성됨
+// object literals
+
+let user = {};
+
+arrow func은 자체적인 this가 없음
+일반 function은 this를 갖음
+object 안에서 this를 지정시 조심해야함
+let user = {
+  name: 'crystal',
+  thistest: function() { this.name } // 가능
+  thistest: () => { this.name } // 안됨
+  }
+
+primitive types : number, string, boolean, null, undefined, symbol
+  => 값 자체를 참조함(원본을 값을 변경하면 해당되는 값만 변경됨
+reference types: objects, object literals, arrays, function, date, all other objects
+  => 참조 주소(heap mem)를 참조함(원본을 변경하면 참조하는 모든 값이 변경됨)

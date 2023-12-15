@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>style과 class(css)</title>
+  <style> body { color: #3a3939; margin: 10px}
+  .welcome { color: blue; background: #a86cb8;  }
+  .noti {
+    position: fixed;
+    z-index: 1000;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 20px;
+    background: #e80808;
+    text-align: center;
+    color: yellow;
+  }
+  </style>
+</head>
+<body>
+<input id="div" type="button" value="버튼" />
+<script>
+  // document.body.style.display = 'none';
+  // setInterval(() => document.body.style.display = '', 1000);
+
+  let btn = document.getElementById('div');
+  btn.style.cssText = `color: white !important;
+  background-color: green; width: 100px; text-align: center; font-size: 28px; padding: 10px;
+  `;
+
+  let computedStyle = getComputedStyle(btn)
+  console.log(computedStyle.color);
+  console.log(computedStyle.paddingTop);
+
+  function showNotification({ top = 0, right = 0, html, className }){
+    let noti = document.createElement('div');
+    noti.className = "noti";
+    if(className) noti.classList.add(className);
+    // noti.style.top = top+'px';
+    // noti.style.right = right+'px';
+    noti.style.cssText = `top: ${top}px; right: ${right}px; `;
+    noti.innerHTML = html;
+    document.body.append(noti);
+    setTimeout(() => noti.remove(), 1500);
+  }
+
+  setInterval(() => {
+    showNotification(
+            {
+              top: 10, // 창의 상단에서 10px 떨어진 위치에 표시합니다(기본값은 0px).
+              right: 10, // 창의 오른쪽 가장자리에서 10px 떨어진 위치에 표시합니다(기본값은 0px).
+              html: "Hello!", // 알림의 HTML입니다.
+              className: "welcome" // div에 대한 추가 클래스입니다(선택 사항).
+            }
+    ) }, 2000);
+
+</script>
+</body>
+</html>

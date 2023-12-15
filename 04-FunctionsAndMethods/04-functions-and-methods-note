@@ -1,0 +1,7 @@
+## 생성 방법
+function greet() {}
+const greet = () => {} // arrow function
+
+## function은 hosting됨
+* 정의하면 최상위로 올라가서 사전 정의됨
+## arrow func은 hosting되지 않아 사용하기 전에 정의해야함.

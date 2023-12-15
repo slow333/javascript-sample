@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>li 사이 li 삽입</title>
+</head>
+<body>
+<ul id="ul">
+  <li id="one">1</li>
+  <li id="two">4</li>
+</ul>
+<table id="table">
+  <thead>
+  <tr>
+    <th>Name</th><th>Surname</th><th>Age</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>John</td><td>Smith</td><td>10</td>
+  </tr>
+  <tr>
+    <td>Pete</td><td>Brown</td><td>15</td>
+  </tr>
+  <tr>
+    <td>Ann</td><td>Lee</td><td>5</td>
+  </tr>
+  <tr>
+    <td>zebra</td><td>me</td><td>11</td>
+  </tr>
+  <tr>
+    <td>한글</td><td>입력</td><td>580</td>
+  </tr>
+  </tbody>
+</table>
+<script>
+  // elem.insertAdjacentHTML(where, html)에서 첫 번째 매개변수는 elem을 기준으로 하는 상대 위치로,
+  // 다음 값 중 하나여야 합니다.
+  // 'beforebegin' – elem 바로 앞에 html을 삽입합니다.
+  // 'afterbegin' – elem의 첫 번째 자식 요소 바로 앞에 html을 삽입합니다.
+  // 'beforeend' – elem의 마지막 자식 요소 바로 다음에 html을 삽입합니다.
+  // 'afterend' – elem 바로 다음에 html을 삽입합니다.
+  let li = document.getElementById('one');
+  li.insertAdjacentHTML('afterend', `<li>2</li><li>3</li>`);
+
+  // 표 정렬 하기... A.@localCompare(B) row.cells[0].innerHTML
+  let tbBody = document.getElementById('table');
+  let sortedRows = Array.from(tbBody.tBodies[0].rows) // 1
+          .sort((rowA, rowB) => rowA.cells[0].innerHTML.localeCompare(rowB.cells[0].innerHTML));
+
+  tbBody.tBodies[0].append(...sortedRows); // (3)
+</script>
+</body>
+</html>

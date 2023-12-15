@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>브라우저 이벤트</title>
+</head>
+<body>
+<input value="클릭 플리즈" onclick=clickHandler() type="button">
+<input value="by function" id="btn" type="button">
+<button onclick=console.log(this.innerHTML) id="callThis" >이 내용이 출력됩니다.</button>
+<input type="button" value="event catch" id="forEventCatch" >
+<input type="button" value="mouse up down event" id="mouseUpDown" >
+<script>
+  let count = 0;
+  function clickHandler(){
+    let addedOnclick = document.createElement('h4');
+    addedOnclick.innerHTML = `you clicked , count : ${++count}`;
+    document.body.append(addedOnclick);
+  }
+
+  let btn = document.getElementById('btn');
+  btn.onclick = function () {
+    console.log('handled by script');
+  };
+  let callForThis = document.getElementById('callThis');
+  function handler1 (){
+    console.log("handler 1 clicked");
+  }
+  function handler2 (){
+    console.log("handler 2 clicked");
+  }
+
+  let eventCatch = document.getElementById('forEventCatch');
+  function eventInfo(event){
+    console.log(event.type + " 이벤트가 " + event.currentTarget + "에서 발생");
+    console.log("이벤트 좌표는 " + event.clientX + " : " + event.clientY);
+  }
+  eventCatch.onclick = eventInfo;
+  callForThis.addEventListener('click', handler1);
+  callForThis.addEventListener('click', handler2);
+  callForThis.addEventListener('click', eventInfo);
+  callForThis.removeEventListener('click', handler2);
+
+  let mouseEvent = document.querySelector('#mouseUpDown');
+  class Menu {
+    handleEvent(event){
+      switch (event.type) {
+        case 'mousedown' :
+          console.log(event.type.toUpperCase());
+          console.log(event.type.slice(1));
+          mouseEvent.value = 'mouse downed ...';
+          break;
+        case 'mouseup' :
+          console.log(event.type[0].toUpperCase());
+          console.log(event.type.slice(1));
+          mouseEvent.value += 'mouse UP ...';
+          break;
+      }
+    }
+  }
+  // let menu = new Menu();
+  // mouseEvent.addEventListener('mousedown', menu);
+  // mouseEvent.addEventListener('mouseup', menu);
+
+  class MouseEventHandle {
+    handleEvent(event) {
+      let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
+      this[method](event);
+    }
+    onMousedown(){
+      mouseEvent.value = '마우스를 누름 >>';
+    }
+    onMouseup(){
+      mouseEvent.value += '버튼을 뗐음 <<<';
+    }
+  }
+  let mouseEventHandler = new MouseEventHandle();
+  mouseEvent.addEventListener('mousedown', mouseEventHandler);
+  mouseEvent.addEventListener('mouseup', mouseEventHandler);
+
+</script>
+</body>
+</html>

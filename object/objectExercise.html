@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>객체 관련 시험용 페이지</title>
+</head>
+<body>
+<h1 class="my-element"> 객체 공부하기 위한 시험용 테스트 페이지 입니다.</h1>
+<script>
+  let user = {
+    name: "John",
+    money: 1000,
+    point: 55,
+
+    [Symbol.toPrimitive](hint) {
+      alert(`hint: ${hint}`);
+      return hint == "string" ? `{name: "${this.name}"}` : this.money + this.point;
+    }
+  };
+
+  // 데모:
+  alert(user); // hint: string -> {name: "John"}
+  alert(+user); // hint: number -> 1000
+  alert(user + 500); // hint: default -> 1500
+</script>
+</body>
+</html>

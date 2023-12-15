@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom exercise</title>
+</head>
+<body id="body" type="notStandard">
+<input id="inputId" type="text">
+<div id="elem" about="Apple"></div>
+<a id="a" href="#hello">link</a>
+<div show-info="name"></div>
+<div show-info="age"></div>
+<script>
+  document.body.sayTagName = function () {
+    console.log(this.tagName);
+  };
+  document.body.sayTagName();
+
+  Element.prototype.sayHi = function() {
+    console.log(`Hello, I'm ${this.tagName}`);
+  };
+
+  document.documentElement.sayHi(); // Hello, I'm HTML
+  document.body.sayHi(); // Hello, I'm BODY
+  console.log("=========================");
+  console.log(inputId.type);
+  console.log(body.getAttribute('type'));
+  body.setAttribute('type', 'newType');
+  console.log(body.getAttribute('type'));
+  console.log(body.hasAttribute('type'));
+  console.log("=========================");
+  elem.getAttribute('about');
+  elem.setAttribute('Test', 222);
+  for (let attr of elem.attributes) {
+    console.log(`${attr.name} = ${attr.value}`);
+  }
+  console.log(a.getAttribute('href'));
+  let user ={ name: "Peter", age: 33 };
+  for (let div of document.querySelectorAll('[show-info]')) {
+    let field = div.getAttribute('show-info');
+    div.innerHTML = user[field];
+    console.log(div.innerHTML);
+  }
+
+</script>
+</body>
+</html>

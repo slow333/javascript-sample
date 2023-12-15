@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>document edit 내용 문제 풀이</title>
+</head>
+<body>
+<ul id="ul"></ul>
+<div id="container"></div>
+<script>
+  let text = '<h1>text 내용이 있습니다....!!</h1>';
+  let elem = document.createElement('p');
+  let elemTextNode = document.createTextNode(text);
+  elem.innerHTML = text;
+  // elem.textContent = text;
+  document.body.append(elemTextNode);
+  document.body.append(elem);
+
+/*  while (true){
+    let input = prompt("리스트를 입력하세요.");
+    let li = document.createElement('li');
+    li.textContent = input;
+    if(input == null || input == '') break;
+    let ul = document.getElementById('ul');
+    ul.append(li);
+  }
+  let lis = document.querySelector('#ul');
+  let lastLi = lis.lastElementChild;
+  // lastLi.remove();*/
+  let data = {
+    "Fish": {
+      "trout": {},
+      "salmon": {}
+    },
+
+    "Tree": {
+      "Huge": {
+        "sequoia": {},
+        "oak": {}
+      },
+      "Flowering": {
+        "apple tree": {},
+        "magnolia": {}
+      }
+    }
+  };
+
+  let container = document.getElementById('container');
+  function createTree(container, obj) {
+    container.innerHTML = createTreeText(obj);
+  }
+
+  function createTreeText(obj) { // 독립 실행형 재귀함수
+    let li = '';
+    let ul;
+    for (let key in obj) {
+      li += '<li>' + key + createTreeText(obj[key]) + '</li>';
+    }
+    if (li) {
+      ul = '<ul>' + li + '</ul>'
+    }
+    return ul || '';
+  }
+  function createTreeByDom(container, obj) {
+    container.append(createTreeDom(obj));
+  }
+
+  function createTreeDom(obj) {
+    // 자식 요소가 없다면 함수는 undefined를 리턴합니다.
+    // 또한 <ul> 역시 생성되지 않을 것입니다.
+    if (!Object.keys(obj).length) return;
+
+    let ul = document.createElement('ul');
+
+    for (let key in obj) {
+      let li = document.createElement('li');
+      li.innerHTML = key;
+
+      let childrenUl = createTreeDom(obj[key]);
+      if (childrenUl) li.append(childrenUl);
+      ul.append(li);
+    }
+    return ul;
+  }
+
+  // createTree(container, data);
+  createTreeByDom(container, data);
+
+  let btnStart = document.createElement('button');
+  let btnStop = document.createElement('button');
+  btnStart.textContent = 'START';
+  btnStart.style.fontSize = '30px';
+  btnStop.style.fontSize = '30px';
+  btnStop.textContent = 'STOP';
+
+  document.body.append(btnStart);
+  document.body.append(btnStop);
+
+  let intId;
+  btnStart.onclick = () => {
+    intId = setInterval(() => showClock(), 1000);
+  }
+  btnStop.onclick = () => {
+    clearInterval(intId);
+  }
+  let clock = document.createElement('div');
+  document.body.append(clock);
+
+  function showClock(){
+    let date = new Date();
+    let hour = date.getHours();
+    if(hour < 10 ) hour = "0" + hour;
+
+    let minute = date.getMinutes();
+    if(minute < 10 ) minute =  "0" + minute;
+
+    let second = date.getSeconds();
+    if(second < 10 ) second = "0" + second;
+
+    clock.innerHTML = `<span style="color: rebeccapurple; font-size: 22px"> ${hour}</span>
+         : <span style="color: red; font-size: 22px">${minute}</span>
+         : <span style="color: blue; font-size: 22px">${second}</span>`;
+  }
+  // showClock();
+
+</script>
+</body>
+</html>
