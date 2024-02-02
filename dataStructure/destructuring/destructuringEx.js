@@ -21,3 +21,4 @@ console.log(first, second);
 
 const [starter, main] = restaurant.order(1, 2);
 console.log(starter, main)
+

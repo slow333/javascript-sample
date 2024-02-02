@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>weather</title>
+  <script src="weather.js"></script>
+  <link rel="stylesheet" href="weather.css">
+</head>
+<body>
+<h1>날씨 찾기</h1>
+<div class="input"> <input type="text" id="search-city"></div>
+<div class="button">
+  <button id="search-btn" class="button-search" onclick="searchCity()">Search</button>
+</div>
+<div class="info">
+    <div id="city-name">도시 이름</div>
+  <div class="table">
+    <table title="도시의 날씨">
+      <tr> <td>
+        <div id="weather-main" class="city-temp">맑음</div>
+        <div id="temp-avg" class="city-temp">Temp: 10도</div>
+        <div id="temp-min" class="city-temp">최저 온도 : 1도</div>
+        <div id="temp-max" class="city-temp">최고 온도 : 15도</div>
+      </td> </tr>
+    </table>
+  </div>
+
+</div>
+
+
+</body>
+</html>

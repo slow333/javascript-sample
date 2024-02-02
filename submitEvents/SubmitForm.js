@@ -25,7 +25,6 @@ const SubmitForm = ({onLogin}) => {
       // });
    }
 
-
    return (
        <form onSubmit={handleSubmit}>
           <div className="form-group">

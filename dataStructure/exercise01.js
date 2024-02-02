@@ -1,29 +1,30 @@
 'use strict';
 
 // Data needed for a later exercise
-const flights =
-  '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
-
-// Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
+const game = {
+  team1: 'Bayern Munich',
+  team2: 'Borrussia Dortmund',
+  players: [['neuer', 'Pavard', 'Son', 'kim', 'Davies','Choi', 'Park', 'Lewan', 'Hummels'],
+    ['Burki', 'Chulz', 'Akanji', 'Min', 'Jae']],
+  score: '4:0',
+  scored: ['Choi', 'Park', 'Lewan', 'Hummels'],
+  date: 'Nov 9th 2025',
+  odds: { team1: 1.33 , x:3.25, team2: 6.5 },
 };
+const [player1, player2] = game.players;
+console.log(player1, player2);
+
+const [gk, ...fieldPlayers] = player1;
+// const [gk, ...fieldPlayer] = player2;
+console.log(gk)
+console.log(fieldPlayers)
+const allPlayers = [...player1, ...player2];
+console.log(allPlayers)
+const player1Final = [...player1, 'Thiaog', 'coutinho', 'Perisic'];
+console.log(player1Final)
+
+const { odds: { team1, x: draw, team2}} = game;
+console.log(team1, draw, team2)
+
+for(const [i, player] of player2.entries()) console.log(`${i +1} : ${player}`);
+

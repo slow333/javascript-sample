@@ -1,0 +1,80 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, "Berlin Sans FB", D2Coding, serif;
+  /*text-transform: capitalize;*/
+  text-decoration: none;
+  /*min-width: 400px;*/
+}
+
+body {
+  background: rgba(10, 10, 100, 50%);
+  padding: 20px;
+  font-family: Arial, "Berlin Sans FB", D2Coding, serif;
+  min-width: 400px;
+}
+
+input {
+  width: 100%;
+  padding: 4px;
+  font-size: 18px;
+  box-sizing: border-box;
+  border: 2px solid green;
+  margin-bottom: 10px;
+}
+
+h1 {  font-size: 40px; }
+h2 { font-size: 30px;  color: white;}
+
+button {
+  margin-right: 10px ;
+  padding: 10px 10px;
+  font-size: 16px;
+}
+#input-btn {
+  background: green;
+  color: white;
+  border: 1px solid green;
+}
+#input-btn:hover {
+  background-color: rgba(53, 87, 199, 0.75);
+}
+#input-btn:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 0, 0, .6),
+  inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+
+#delete-btn{
+  background: white;
+  color: green;
+  border: 1px solid green;
+}
+#delete-btn:hover {
+  background-color: gainsboro;
+}
+#delete-btn:active {
+  box-shadow: inset -2px -2px 3px rgba(255, 0, 0, .6),
+  inset 2px 2px 3px rgba(0, 0, 0, .6);
+}
+ul{
+  list-style: none;
+  padding-left: 0;
+  margin-top: 20px;
+}
+li {
+  margin: 0px;
+  padding-top: 5px;
+  font-size: 20px;
+  color: #3c3c3c;
+  text-transform: lowercase;
+}
+li a {
+  text-emphasis-color: red;
+  text-decoration: underline;
+  color: #2aaa01;
+}
+a:active{
+  color: red;
+}

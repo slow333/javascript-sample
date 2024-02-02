@@ -23,21 +23,23 @@ console.log( document.head.nextSibling ); // HTMLBodyElement
 console.log( document.body.previousSibling ); // HTMLHeadElement
 
 function changeElem() {
-  let color = ['red', 'blue'];
-  let rand = Math.ceil(Math.random()*2) ;
-  document.getElementById('elem').style.background = color[rand];
-  document.getElementById('elem').hidden = !document.getElementById('elem').hidden;
+  let color = ['red', 'blue','black', '#222'];
+  let rand = Math.trunc(Math.random()*color.length) ;
+  // document.getElementById('elem').style.background = color[1];
+  document.body.style.background = color[rand];
+  document.getElementById('elem').hidden =
+    !document.getElementById('elem').hidden;
 }
 setInterval(() => {
   changeElem()
 }, 1000);
-let div = document.querySelector('div');
+// let div = document.querySelector('div');
 
 // div.outerHTML를 사용해 <p>...</p>로 교체
-div.outerHTML = '<p>새로운 요소</p>'; // (*)
+// div.outerHTML = '<p>새로운 요소</p>'; // (*)
 
 // 어! div가 그대로네요!
-console.log(div.outerHTML); // <div>Hello, world!</div> (**)
+// console.log(div.outerHTML); // <div>Hello, world!</div> (**)
 // for(let i =0; i < document.body.childNodes.length; i++){
 //   console.log(document.body.childNodes[i]);
 // }
@@ -46,9 +48,9 @@ console.log(div.outerHTML); // <div>Hello, world!</div> (**)
 // }
 // '이'가 적힌 td를 가져옴(첫 번째 줄, 두 번째 칸)
 
-let elements = document.querySelectorAll('tr > td:last-child');
-for (let elem of elements) {
-  console.log(elem.innerHTML);
-}
-let td = table.rows[0].cells[1];
-td.style.backgroundColor = "red"; // 강조
+// let elements = document.querySelectorAll('tr > td:last-child');
+// for (let elem of elements) {
+//   console.log(elem.innerHTML);
+// }
+// let td = table.rows[0].cells[1];
+// td.style.backgroundColor = "red"; // 강조

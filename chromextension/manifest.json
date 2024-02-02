@@ -1,0 +1,12 @@
+{
+  "manifest_version": 3,
+  "version": "1.1",
+  "name": "KIMs Family",
+  "action": {
+    "default_popup": "chromeExtension.html",
+    "default_icon": "korea.png"
+  },
+  "permissions": [
+    "tabs"
+  ]
+}

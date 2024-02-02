@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="form.css">
+</head>
+<body>
+<section class="login-form">
+  <h1>회사 로고</h1>
+  <form method="get" action="loginok.html" autocomplete="off">
+    <div class="int-area">
+      <input type="text" name="id"  id="id" required>
+      <label for="id">ID</label>
+    </div>
+    <div class="int-area">
+      <input type="password" name="password" id="password" required>
+      <label for="password">Password</label>
+    </div>
+    <div class="btn-area">
+      <button type="submit" id="btn">로그인</button><br>
+    </div>
+  </form>
+  <div class="caption">
+    <a href="find_lost_pass.html">비밀 번호 찾기</a>
+  </div>
+</section>
+<script>
+  let idcheck = document.getElementById('id')
+  let passcheck = document.getElementById('password')
+  let btn = document.getElementById('btn')
+
+  function isInput() {
+    if(idcheck.value ===''){
+      alert('id를 입력하세요')
+      idcheck.focus()
+    } else if(passcheck.value === ''){
+      alert('pass를 입력하세요')
+      idcheck.focus()
+    }
+  }
+
+  btn.onclick = () => isInput()
+
+</script>
+</body>
+</html>

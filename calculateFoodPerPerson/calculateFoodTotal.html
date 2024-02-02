@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+  <meta charset="UTF-8">
+  <link type="text/css" rel="stylesheet" href="../style.css">
+  <title>음식값</title>
+</head>
+<body>
+<h2 style="display: inline">음식 값</h2><br>
+</span><input id="food-price" onkeyup="calculateBill()"><br>
+<h2 style="display: inline;margin-right: 40px">팁 % </h2><br>
+<input id="tip-amount" onkeyup="calculateBill()"><br>
+<table>
+  <tr>
+    <th style="text-align: center;padding: 20px"><h2>사람 수</h2></th>
+    <th style="text-align: center;padding: 20px"><h2 >개별 음식 값</h2></th>
+  </tr>
+  <tr>
+    <th>
+      <button id="plus" style="width: 40px;height: 40px;border-radius: 30px;padding:0px"
+              onclick="increasePeople()">+</button>
+      <span id="num-person" style="font-size: 30px;">1</span>
+      <button id="minus" style="width: 40px;height:40px;border-radius: 30px;padding:0px"
+              onclick="decreasePeople()">-</button>
+    </th>
+    <th>
+      <span id="food-per-person" style="font-size: 30px;text-align: center;padding: 20px"></span>
+    </th>
+  </tr>
+</table>
+
+
+<!--<button id="cal-btn" class="input-btn">계산</button>-->
+
+
+<script src="calFood.js"></script>
+</body>
+</html>
