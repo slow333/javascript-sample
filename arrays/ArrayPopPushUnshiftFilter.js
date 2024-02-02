@@ -50,6 +50,23 @@ const ArrayPopPushUnshiftFilter = () => {
 // getMaxSubSum([-2, -1, 1, 2]) == 3
 // getMaxSubSum([100, -9, 2, -3, 5]) == 100
 // getMaxSubSum([1, 2, 3]) == 6 (모든 요소)
+  let arr = [ 1, 2, 15 ];
+  function compareNumeric(a, b) {
+    if (a > b) return 1;
+    if (a == b) return 0;
+    if (a < b) return -1;
+  }
+
+// arr.sort(compareNumeric);
+// arr.sort(function(a, b) { return a - b; });
+  arr.sort((a, b) => a - b );
+
+  let countries = ['Österreich', 'Andorra', 'Vietnam'];
+
+  let kor = ['가나', '다라', '가가'];
+
+  countries.sort( (a, b) => a > b ? 1 : -1); // Andorra, Vietnam, Österreich (제대로 정렬이 되지 않았습니다.)
+  kor.sort( (a, b) => a.localeCompare(b) ); // Andorra,Österreich,Vietnam (제대로 정렬되었네요!)
 
   let army = {
     minAge: 18,
@@ -68,10 +85,13 @@ const ArrayPopPushUnshiftFilter = () => {
 
 // army.canJoin 호출 시 참을 반환해주는 user를 찾음
   let soldiers = users.filter(army.canJoin, army);
-*/
+
+// alert(soldiers.length); // 2
+// alert(soldiers[0].age); // 20
+// alert(soldiers[1].age); // 23*/
   return (
     <div>
-      {fruits.map((value, key) => <div key={key}>{key} : {value}</div>)}
+      {fruits.map((value, key) => <div>{key} : {value}</div>)}
     </div>
   );
 };
