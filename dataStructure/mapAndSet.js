@@ -17,3 +17,9 @@ for (const [key, value] of question){
 // const answer = Number(prompt("정답번호는 ? "));
 const answer = 3;
 console.log(question.get(question.get('answer') === answer))
+
+const objSample = {
+  name: 'kim', age: 33,
+}
+const objToMap = new Map(Object.entries(objSample));
+console.log(objToMap)
